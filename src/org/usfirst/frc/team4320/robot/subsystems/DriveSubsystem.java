@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 public class DriveSubsystem extends Subsystem{
-	private enum DriveState{
+	public enum DriveState{
 		arcade,
 		mecanum
 	}
@@ -54,6 +54,9 @@ public class DriveSubsystem extends Subsystem{
 	}
 	public void Drive(double x, double y, double z){
 		arcadeDrive.mecanumDrive_Cartesian(x, y, z, 0);
+	}
+	public DriveState getDriveState(){
+		return state;
 	}
 	@Override
 	protected void initDefaultCommand() {
