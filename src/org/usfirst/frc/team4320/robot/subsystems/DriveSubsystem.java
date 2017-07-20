@@ -21,7 +21,7 @@ public class DriveSubsystem extends Subsystem{
 	private CANTalon rightFrontTalonS;
 	private RobotDrive arcadeDrive;
 	private RobotDrive mecanumDrive;
-	private DriveState state;//will be used to determine the cylinders state
+	private DriveState state = DriveState.arcade;//will be used to determine the cylinders state
 	private static DriveSubsystem instance;
 
 	public static DriveSubsystem getInstance(){
