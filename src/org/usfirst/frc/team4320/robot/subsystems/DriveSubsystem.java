@@ -22,8 +22,13 @@ public class DriveSubsystem extends Subsystem{
 	private RobotDrive arcadeDrive;
 	private RobotDrive mecanumDrive;
 	private DriveState state;//will be used to determine the cylinders state
+	private static DriveSubsystem instance;
 
-	
+	public static DriveSubsystem getInstance(){
+		if(instance == null)
+			instance = new DriveSubsystem();
+		return instance;
+	}
 	private DriveSubsystem(){
 		 //Define CAN Talons
 		 leftRearTalonM = new CANTalon(RobotMap.LEFT_REAR_MOTOR);
@@ -49,10 +54,10 @@ public class DriveSubsystem extends Subsystem{
 		 state = DriveState.arcade;
 	}
 	
-	public void Drive(double y, double z){
+	public void drive(double y, double z){
 		arcadeDrive.arcadeDrive(y,z);
 	}
-	public void Drive(double x, double y, double z){
+	public void drive(double x, double y, double z){
 		arcadeDrive.mecanumDrive_Cartesian(x, y, z, 0);
 	}
 	public DriveState getDriveState(){
