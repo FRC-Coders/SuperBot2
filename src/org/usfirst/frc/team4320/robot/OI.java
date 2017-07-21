@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4320.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
@@ -10,12 +11,19 @@ import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private Joystick stick;
+	private Joystick joystick;
+	private XboxController xboxController; 
 	public OI(){
-		stick = new Joystick(RobotMap.JOYSTICK);
+		joystick = new Joystick(RobotMap.JOYSTICK);
+		xboxController = new XboxController(RobotMap.XBOXCONTROLLER);
 	}
-	public Joystick getStick(){
-		return stick;
+	
+	public Joystick getJoystick(){
+		return joystick;
+	}
+	
+	public XboxController getXboxController(){
+		return xboxController;
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

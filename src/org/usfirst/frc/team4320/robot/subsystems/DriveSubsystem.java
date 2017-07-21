@@ -11,17 +11,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 public class DriveSubsystem extends Subsystem{
+	
 	public enum DriveState{
 		arcade,
 		mecanum
 	}
+	
 	private CANTalon leftRearTalonM;
 	private CANTalon leftFrontTalonS;
 	private CANTalon rightRearTalonM;
 	private CANTalon rightFrontTalonS;
 	private RobotDrive arcadeDrive;
 	private RobotDrive mecanumDrive;
-	private DriveState state = DriveState.arcade;//will be used to determine the cylinders state
+	private DriveState state = DriveState.arcade;//will be used to determine the cylinders state , the defult is arcade
 	private static DriveSubsystem instance;
 
 	public static DriveSubsystem getInstance(){
@@ -29,6 +31,7 @@ public class DriveSubsystem extends Subsystem{
 			instance = new DriveSubsystem();
 		return instance;
 	}
+	
 	private DriveSubsystem(){
 		 //Define CAN Talons
 		 leftRearTalonM = new CANTalon(RobotMap.LEFT_REAR_MOTOR);
@@ -51,15 +54,17 @@ public class DriveSubsystem extends Subsystem{
 		 //Define slave and master with follower
 		 leftFrontTalonS.changeControlMode(TalonControlMode.PercentVbus);
 		 rightFrontTalonS.changeControlMode(TalonControlMode.PercentVbus);
-		 state = DriveState.arcade;
+		 state = DriveState.mecanum;
 	}
 	
 	public void drive(double y, double z){
 		arcadeDrive.arcadeDrive(y,z);
 	}
+	
 	public void drive(double x, double y, double z){
-		arcadeDrive.mecanumDrive_Cartesian(x, y, z, 0);
+		mecanumDrive.mecanumDrive_Cartesian(x, y, z, 0);
 	}
+	
 	public DriveState getDriveState(){
 		return state;
 	}

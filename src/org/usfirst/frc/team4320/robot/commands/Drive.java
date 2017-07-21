@@ -6,6 +6,7 @@ import org.usfirst.frc.team4320.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
+	
 	public Drive(){
 		requires(Robot.driveSubsystem);
 	}
@@ -19,11 +20,11 @@ public class Drive extends Command {
 	protected void execute() {
 		if(Robot.driveSubsystem.getDriveState() == DriveSubsystem.DriveState.arcade){
 			Robot.driveSubsystem.initArcade();
-			Robot.driveSubsystem.drive(Robot.oi.getStick().getY(),Robot.oi.getStick().getZ());
+			Robot.driveSubsystem.drive(Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
 		}
 		else if (Robot.driveSubsystem.getDriveState() == DriveSubsystem.DriveState.mecanum){
 			Robot.driveSubsystem.initMecanum();
-			Robot.driveSubsystem.drive(Robot.oi.getStick().getX(),Robot.oi.getStick().getY(),Robot.oi.getStick().getZ());
+			Robot.driveSubsystem.drive(Robot.oi.getJoystick().getX(),Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
 		}
 	}
 
