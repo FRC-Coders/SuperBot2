@@ -3,7 +3,9 @@ package org.usfirst.frc.team4320.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team4320.robot.commands.Drive;
 import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
 
 /**
@@ -16,6 +18,11 @@ public class OI {
 	public OI(){
 		joystick = new Joystick(RobotMap.JOYSTICK);
 		xboxController = new XboxController(RobotMap.XBOXCONTROLLER);
+		
+		JoystickButton trigger = new JoystickButton(joystick,1);//Front Trigger
+	
+	
+		trigger.whileHeld(new Drive());
 	}
 	
 	public Joystick getJoystick(){
