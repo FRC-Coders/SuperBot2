@@ -9,8 +9,10 @@ public class setPistons extends Command {
 	private Piston piston;
 	private boolean state;
 	public setPistons(Piston piston,boolean state){
+		requires(Robot.pistonControl);
 		this.piston = piston;
 		this.state = state;
+
 	}
 	// Called just before this Command runs the first time
 	@Override
