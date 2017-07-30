@@ -7,20 +7,25 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4320.robot.commands.Drive;
 import org.usfirst.frc.team4320.robot.commands.SwitchDrive;
+import org.usfirst.frc.team4320.robot.commands.ToggleCompressor;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private Joystick joystick; 
+	private Joystick joystick;
+	private XboxController xboxController;
+	private JoystickButton compressorButton;
+	JoystickButton trigger;
 	public OI(){
 		joystick = new Joystick(RobotMap.JOYSTICK);
+		xboxController = new XboxController(RobotMap.XBOXCONTROLLER);
+		compressorButton = new JoystickButton(xboxController,4);//Y Button
+		trigger = new JoystickButton(joystick,1);//Front Trigger
 		
-		JoystickButton trigger = new JoystickButton(joystick,1);//Front Trigger
-	
-	
-		trigger.whenPressed(new SwitchDrive());;
+		trigger.whenPressed(new SwitchDrive());
+		compressorButton.toggleWhenPressed(new ToggleCompressor());
 	}
 	public Joystick getJoystick(){
 		return joystick;
