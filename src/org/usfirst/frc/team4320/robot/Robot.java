@@ -9,9 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4320.robot.commands.Drive;
-import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4320.robot.subsystems.DriveSubsystem;
-import org.usfirst.frc.team4320.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4320.robot.subsystems.PistonContol;
 import org.usfirst.frc.team4320.robot.subsystems.PneumaticsControl;
 
@@ -24,7 +22,6 @@ import org.usfirst.frc.team4320.robot.subsystems.PneumaticsControl;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveSubsystem driveSubsystem = DriveSubsystem.getInstance();
 	public static final PneumaticsControl pneumaticsControl = PneumaticsControl.getInstance();
 	public static final PistonContol pistonControl=PistonContol.getInstance();

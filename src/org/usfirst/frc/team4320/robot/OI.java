@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4320.robot.commands.Drive;
-import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4320.robot.commands.SwitchDrive;
 
 /**
