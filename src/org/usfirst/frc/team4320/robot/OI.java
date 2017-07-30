@@ -7,30 +7,24 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4320.robot.commands.Drive;
 import org.usfirst.frc.team4320.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4320.robot.commands.SwitchDrive;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private Joystick joystick;
-	private XboxController xboxController; 
+	private Joystick joystick; 
 	public OI(){
 		joystick = new Joystick(RobotMap.JOYSTICK);
-		xboxController = new XboxController(RobotMap.XBOXCONTROLLER);
 		
 		JoystickButton trigger = new JoystickButton(joystick,1);//Front Trigger
 	
 	
-		trigger.whileHeld(new Drive());
+		trigger.whenPressed(new SwitchDrive());;
 	}
-	
 	public Joystick getJoystick(){
 		return joystick;
-	}
-	
-	public XboxController getXboxController(){
-		return xboxController;
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
