@@ -19,6 +19,9 @@ public class RobotMap {
 	//Controller port
 	public static final int XBOXCONTROLLER = 1;
 	
+	//Analog Ports
+	public static final int PRESSURE_SENSOR_PORT = 0;
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
