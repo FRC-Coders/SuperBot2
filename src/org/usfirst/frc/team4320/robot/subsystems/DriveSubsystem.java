@@ -68,6 +68,9 @@ public class DriveSubsystem extends Subsystem{
 	public DriveState getDriveState(){
 		return state;
 	}
+	public void setDriveState(DriveState state){
+		this.state = state;
+	}
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
