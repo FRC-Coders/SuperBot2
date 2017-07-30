@@ -18,8 +18,15 @@ public class PistonContol extends Subsystem{
 	private DoubleSolenoid frontRight;
 	private DoubleSolenoid rearRight;
 	private boolean state;
+	private static PistonContol instance;
 	
-	public PistonContol() {
+	public static PistonContol getInstance(){
+		if(instance==null)
+			instance=new PistonContol();
+		return instance;
+	}
+	
+	private PistonContol() {
 		frontLeft=new DoubleSolenoid(RobotMap.FRONT_LEFT_ACTIVE, RobotMap.FRONT_LEFT_DRAIN);
 		rearLeft=new DoubleSolenoid(RobotMap.REAR_LEFT_ACTIVE ,RobotMap.REAR_LEFT_DRAIN);
 		frontRight=new DoubleSolenoid(RobotMap.FRONT_RIGHT_ACTIVE, RobotMap.FRONT_RIGHT_DRAIN);
