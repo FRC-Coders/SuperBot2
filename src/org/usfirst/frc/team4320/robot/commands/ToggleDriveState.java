@@ -6,15 +6,15 @@ import org.usfirst.frc.team4320.robot.subsystems.DriveSubsystem.DriveState;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 public class ToggleDriveState extends InstantCommand {
+	private DriveState state;
+	public ToggleDriveState(DriveState state){
+		requires(Robot.driveSubsystem);
+		this.state = state;
+	}
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		if(Robot.driveSubsystem.getDriveState()==DriveState.arcade){
-			Robot.driveSubsystem.setDriveState(DriveState.mecanum);
-		}
-		else if(Robot.driveSubsystem.getDriveState()==DriveState.mecanum){
-			Robot.driveSubsystem.setDriveState(DriveState.arcade);
-		}
+		Robot.driveSubsystem.setDriveState(state);
 	}
 
 }
