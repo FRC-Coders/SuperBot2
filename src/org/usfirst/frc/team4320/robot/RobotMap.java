@@ -22,6 +22,20 @@ public class RobotMap {
 	//Analog Ports
 	public static final int PRESSURE_SENSOR_PORT = 0;
 	
+	//PCM
+	public static final int FRONT_LEFT_ACTIVE=0;
+	public static final int FRONT_LEFT_DRAIN=1;
+
+	public static final int REAR_LEFT_ACTIVE=2;
+	public static final int REAR_LEFT_DRAIN=3;
+	
+	public static final int FRONT_RIGHT_ACTIVE=4;
+	public static final int FRONT_RIGHT_DRAIN=5;
+
+	public static final int REAR_RIGHT_ACTIVE=6;
+	public static final int REAR_RIGHT_DRAIN=7;
+
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
