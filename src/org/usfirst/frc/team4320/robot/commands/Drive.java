@@ -18,7 +18,7 @@ public class Drive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		/*
+		
 		if(Robot.driveSubsystem.getDriveState() == DriveSubsystem.DriveState.arcade){
 			Robot.driveSubsystem.initArcade();
 			Robot.driveSubsystem.drive(Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
@@ -28,9 +28,6 @@ public class Drive extends Command {
 			Robot.driveSubsystem.drive(Robot.oi.getJoystick().getX(),Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
 		
 		}
-		*/
-		Robot.driveSubsystem.initMecanum();
-		Robot.driveSubsystem.drive(Robot.oi.getJoystick().getX(),Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -43,12 +40,13 @@ public class Drive extends Command {
 	@Override
 	protected void end() {
 		Robot.driveSubsystem.initArcade();
-		Robot.driveSubsystem.drive(Robot.oi.getJoystick().getY(),Robot.oi.getJoystick().getZ());
+		Robot.driveSubsystem.drive(0,0);
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }
