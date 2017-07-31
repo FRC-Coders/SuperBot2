@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team4320.robot.commands.Drive;
 import org.usfirst.frc.team4320.robot.commands.EjectGear;
 import org.usfirst.frc.team4320.robot.commands.GrabGear;
+import org.usfirst.frc.team4320.robot.commands.LiftJaws;
 import org.usfirst.frc.team4320.robot.commands.SwitchDrive;
 import org.usfirst.frc.team4320.robot.commands.ToggleCompressor;
 import org.usfirst.frc.team4320.robot.commands.ToggleJaws;
@@ -24,6 +25,7 @@ public class OI {
 	private JoystickButton jawsButton;
 	private JoystickButton grabButton;
 	private JoystickButton ejectButton;
+	private JoystickButton liftJawsButton;
 	
 	public OI(){
 		joystick = new Joystick(RobotMap.JOYSTICK);
@@ -33,12 +35,14 @@ public class OI {
 		jawsButton = new JoystickButton(xboxController,6);
 		grabButton = new JoystickButton(xboxController,3);
 		ejectButton = new JoystickButton(xboxController,2); 
+		liftJawsButton = new JoystickButton(xboxController,5);
 		
 		trigger.whenPressed(new SwitchDrive());
 		compressorButton.toggleWhenPressed(new ToggleCompressor());
 		jawsButton.toggleWhenPressed(new ToggleJaws());
 		grabButton.toggleWhenPressed(new GrabGear());
 		ejectButton.toggleWhenPressed(new EjectGear());
+		liftJawsButton.toggleWhenPressed(new LiftJaws());
 	}
 	public Joystick getJoystick(){
 		return joystick;
