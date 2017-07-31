@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4320.robot.commands.Drive;
 import org.usfirst.frc.team4320.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team4320.robot.subsystems.GearJaws;
+import org.usfirst.frc.team4320.robot.subsystems.JawsLifter;
 import org.usfirst.frc.team4320.robot.subsystems.PistonContol;
 import org.usfirst.frc.team4320.robot.subsystems.PneumaticsControl;
 
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot {
 	public static final PneumaticsControl pneumaticsControl = PneumaticsControl.getInstance();
 	public static final PistonContol pistonControl=PistonContol.getInstance();
 	public static final GearJaws gearJaws = GearJaws.getInstance();
+	public static final JawsLifter jawsLifter = JawsLifter.getInstance();
 	public static OI oi;
 
 	Command autonomousCommand;
