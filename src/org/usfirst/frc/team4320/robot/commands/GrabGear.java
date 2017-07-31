@@ -29,7 +29,7 @@ public class GrabGear extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		Robot.gearJaws.setGrabber(GrabberState.eject);
+		Robot.gearJaws.setGrabber(GrabberState.off);
 	}
 
 	// Called when another command which requires one or more of the same
