@@ -6,8 +6,11 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4320.robot.commands.Drive;
+import org.usfirst.frc.team4320.robot.commands.EjectGear;
+import org.usfirst.frc.team4320.robot.commands.GrabGear;
 import org.usfirst.frc.team4320.robot.commands.SwitchDrive;
 import org.usfirst.frc.team4320.robot.commands.ToggleCompressor;
+import org.usfirst.frc.team4320.robot.commands.ToggleJaws;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,15 +20,25 @@ public class OI {
 	private Joystick joystick;
 	private XboxController xboxController;
 	private JoystickButton compressorButton;
-	JoystickButton trigger;
+	private JoystickButton trigger;
+	private JoystickButton jawsButton;
+	private JoystickButton grabButton;
+	private JoystickButton ejectButton;
+	
 	public OI(){
 		joystick = new Joystick(RobotMap.JOYSTICK);
 		xboxController = new XboxController(RobotMap.XBOXCONTROLLER);
 		compressorButton = new JoystickButton(xboxController,4);//Y Button
 		trigger = new JoystickButton(joystick,1);//Front Trigger
+		jawsButton = new JoystickButton(xboxController,6);
+		grabButton = new JoystickButton(xboxController,3);
+		ejectButton = new JoystickButton(xboxController,2); 
 		
 		trigger.whenPressed(new SwitchDrive());
 		compressorButton.toggleWhenPressed(new ToggleCompressor());
+		jawsButton.toggleWhenPressed(new ToggleJaws());
+		grabButton.toggleWhenPressed(new GrabGear());
+		ejectButton.toggleWhenPressed(new EjectGear());
 	}
 	public Joystick getJoystick(){
 		return joystick;
