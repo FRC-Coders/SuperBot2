@@ -40,7 +40,7 @@ public class RobotMap {
 	
 	//PCM 2 ? Don't know yet how to program 2 pcms
 	public static final int JAWS_ACTIVE = 0;
-	public static final int JAWS_DRAIN = 0;
+	public static final int JAWS_DRAIN = 1;
 	
 	//PWM Ports
 	public static final int JAWS_LEFT_MOTOR = 0;
