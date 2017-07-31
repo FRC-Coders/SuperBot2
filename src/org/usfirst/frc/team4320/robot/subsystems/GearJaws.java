@@ -8,11 +8,6 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class GearJaws extends Subsystem {
-	public enum GrabberState{
-		insert,
-		eject,
-		off
-	}
 	private DoubleSolenoid jaws;
 	private DigitalInput microSwitch;
 	private Talon leftGrabTalon;
@@ -46,21 +41,9 @@ public class GearJaws extends Subsystem {
 	public boolean getMicroSwitchState(){
 		return microSwitch.get();
 	}
-	public void setGrabber(GrabberState state){
-		if(state == GrabberState.insert){
-			leftGrabTalon.set(-1.0);
-			rightGrabTalon.set(1.0);
-		}
-		else if(state == GrabberState.eject){
-			leftGrabTalon.set(1.0);
-			rightGrabTalon.set(-1.0);
-		}
-		else if(state == GrabberState.off){
-			leftGrabTalon.set(0);
-			rightGrabTalon.set(0);
-		}
-			
-			
+	public void setGrabber(double speed){
+		leftGrabTalon.set(-speed);
+		rightGrabTalon.set(speed);
 	}
 	@Override
 	protected void initDefaultCommand() {
