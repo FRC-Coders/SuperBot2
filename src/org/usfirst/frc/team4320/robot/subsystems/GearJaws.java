@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class GearJaws extends Subsystem {
 	public enum GrabberState{
@@ -43,8 +44,12 @@ public class GearJaws extends Subsystem {
 		else if(jaws.get() == DoubleSolenoid.Value.kReverse);
 			return false;
 	}
-	public boolean getMicroSwitchState(){
-		return microSwitch.get();
+	public void reportStatus(){
+		if(microSwitch.get())
+			SmartDashboard.putString("Gear Status", "Gear In !");
+		else
+			SmartDashboard.putString("Gear Status", "Gear Not Found");
+			
 	}
 	public void setGrabber(GrabberState state){
 		if(state == GrabberState.insert){
